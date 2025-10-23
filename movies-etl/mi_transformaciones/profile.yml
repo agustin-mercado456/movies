@@ -1,0 +1,12 @@
+mi_transformaciones:
+  outputs:
+    dev:
+      dbname: aaa
+      host: localhost
+      pass: '123'
+      port: 5432
+      schema: a
+      threads: 1
+      type: postgres
+      user: t
+  target: dev

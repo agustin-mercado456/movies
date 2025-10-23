@@ -1,0 +1,36 @@
+[project]
+name = "movies_etl"
+requires-python = ">=3.9,<3.14"
+version = "0.1.0"
+dependencies = [
+    "dagster==1.11.15",
+    "dagster-dbt>=0.27.15",
+    "dagster-dlt>=0.27.15",
+    "dbt-postgres>=1.9.1",
+    "dlt[postgres]>=1.12.1",
+    "psycopg2-binary>=2.9.11",
+]
+
+[dependency-groups]
+dev = [
+    "dagster-webserver",
+    "dagster-dg-cli",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+force-include = { "pyproject.toml" = "pyproject.toml" }
+
+[tool.dg]
+directory_type = "project"
+
+[tool.dg.project]
+root_module = "movies_etl"
+registry_modules = [
+    "movies_etl.components.*",
+]
+
+
